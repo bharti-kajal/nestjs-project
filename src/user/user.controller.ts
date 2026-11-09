@@ -5,7 +5,7 @@ import { Controller, Get } from '@nestjs/common';
 export class UserController {
     @Get() // decorators method with the route 'user'
     getUser(): string {
-        return 'User Data retrieved successfully!';
+        return 'User Data fetched successfully!';
     }
 
 }

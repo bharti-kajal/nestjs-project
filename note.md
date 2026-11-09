@@ -26,8 +26,17 @@ tsconfig.build - build ke liye
 
 <!-- Decorators -->
 @function is decorators 
+@injectable() descorators 
 
 CLI se controller 
 cmd - nest g controller user
 
+NOTE : If you want every changes should reflects 
+npm run start:dev
 
+Nest js services: generate and inject
+
+What is services 
+
+Create services using cli cmd - 
+nest g s product
