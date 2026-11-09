@@ -20,3 +20,14 @@ tsconfig.build - build ke liye
 6.package-lock.json - explain 
 7.package.json - explain
 
+
+
+<!-- Create your first controller with cli  -->
+
+<!-- Decorators -->
+@function is decorators 
+
+CLI se controller 
+cmd - nest g controller user
+
+
