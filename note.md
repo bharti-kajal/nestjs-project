@@ -40,3 +40,6 @@ What is services
 
 Create services using cli cmd - 
 nest g s product
+
+Modules in Nest js 
+nest g module employee
