@@ -56,3 +56,16 @@ REST APIS
 3.PUT
 4.PATCH
 5.DELETE
+
+
+---
+### Database Connection (PostgreSQL + TypeORM)
+- **Packages**: `@nestjs/typeorm`, `typeorm`, `pg`, `@nestjs/config`
+- **Config**: Configured in `app.module.ts` via `TypeOrmModule.forRootAsync()` using `.env`.
+- **Entity**: `Student` entity created with id, name, email, age, createdAt, updatedAt.
+
+---
+### 1. GET API
+Used to retrieve data from the server/database.
+- **GET /student**: Returns an array of all students (`studentRepository.find()`).
+- **GET /student/:id**: Returns a single student by id (`studentRepository.findOneBy({ id })`). Throws `NotFoundException` if student is not found.
