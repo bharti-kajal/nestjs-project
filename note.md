@@ -77,3 +77,11 @@ Used to create a new resource in the database.
 - Checks if the email is already registered; if yes, throws `ConflictException` (HTTP 409).
 - Saves new student using `studentRepository.create()` and `studentRepository.save()`.
 - Returns HTTP 201 Created with the saved student entity.
+
+---
+### 3. PUT API
+Used to update or replace an entire existing resource.
+- **PUT /student/:id**: Replaces the student data with the payload from `UpdateStudentDto`.
+- Ensures student exists (throws `NotFoundException` if not).
+- Checks for email uniqueness if updating to a new email (throws `ConflictException` if already taken).
+- Updates name, email, age and updates timestamp.

@@ -7,10 +7,12 @@ import {
   Param,
   ParseIntPipe,
   Post,
+  Put,
 } from '@nestjs/common';
 import { StudentService } from './student.service.js';
 import { Student } from './entities/student.entity.js';
 import { CreateStudentDto } from './dto/create-student.dto.js';
+import { UpdateStudentDto } from './dto/update-student.dto.js';
 
 @Controller('student')
 export class StudentController {
@@ -33,5 +35,14 @@ export class StudentController {
   @HttpCode(HttpStatus.CREATED)
   async create(@Body() createStudentDto: CreateStudentDto): Promise<Student> {
     return this.studentService.create(createStudentDto);
+  }
+
+  // 3. PUT: Full update of an existing student
+  @Put(':id')
+  async update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateStudentDto: UpdateStudentDto,
+  ): Promise<Student> {
+    return this.studentService.update(id, updateStudentDto);
   }
 }
