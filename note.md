@@ -85,3 +85,11 @@ Used to update or replace an entire existing resource.
 - Ensures student exists (throws `NotFoundException` if not).
 - Checks for email uniqueness if updating to a new email (throws `ConflictException` if already taken).
 - Updates name, email, age and updates timestamp.
+
+---
+### 4. PATCH API
+Used to perform a partial update on an existing resource (only modifying fields that are sent).
+- **PATCH /student/:id**: Accepts `PatchStudentDto` where all fields are optional.
+- If a new email is provided, verifies uniqueness against other records.
+- Updates only the provided fields (`name`, `email`, and/or `age`), leaving other fields unchanged.
+- Saves and returns the updated student.

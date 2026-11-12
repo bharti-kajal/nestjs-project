@@ -6,6 +6,7 @@ import {
   HttpStatus,
   Param,
   ParseIntPipe,
+  Patch,
   Post,
   Put,
 } from '@nestjs/common';
@@ -13,6 +14,7 @@ import { StudentService } from './student.service.js';
 import { Student } from './entities/student.entity.js';
 import { CreateStudentDto } from './dto/create-student.dto.js';
 import { UpdateStudentDto } from './dto/update-student.dto.js';
+import { PatchStudentDto } from './dto/patch-student.dto.js';
 
 @Controller('student')
 export class StudentController {
@@ -44,5 +46,14 @@ export class StudentController {
     @Body() updateStudentDto: UpdateStudentDto,
   ): Promise<Student> {
     return this.studentService.update(id, updateStudentDto);
+  }
+
+  // 4. PATCH: Partial update of an existing student
+  @Patch(':id')
+  async patch(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() patchStudentDto: PatchStudentDto,
+  ): Promise<Student> {
+    return this.studentService.patch(id, patchStudentDto);
   }
 }

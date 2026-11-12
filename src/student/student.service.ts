@@ -4,6 +4,7 @@ import { Repository } from 'typeorm';
 import { Student } from './entities/student.entity.js';
 import { CreateStudentDto } from './dto/create-student.dto.js';
 import { UpdateStudentDto } from './dto/update-student.dto.js';
+import { PatchStudentDto } from './dto/patch-student.dto.js';
 
 @Injectable()
 export class StudentService {
@@ -58,6 +59,33 @@ export class StudentService {
     student.name = updateStudentDto.name;
     student.email = updateStudentDto.email;
     student.age = updateStudentDto.age ?? student.age;
+
+    return this.studentRepository.save(student);
+  }
+
+  // 4. PATCH - Partial update of an existing student
+  async patch(id: number, patchStudentDto: PatchStudentDto): Promise<Student> {
+    const student = await this.findOne(id);
+
+    if (patchStudentDto.email && patchStudentDto.email !== student.email) {
+      const emailTaken = await this.studentRepository.findOneBy({
+        email: patchStudentDto.email,
+      });
+      if (emailTaken) {
+        throw new ConflictException(
+          `Student with email "${patchStudentDto.email}" already exists`,
+        );
+      }
+      student.email = patchStudentDto.email;
+    }
+
+    if (patchStudentDto.name !== undefined) {
+      student.name = patchStudentDto.name;
+    }
+
+    if (patchStudentDto.age !== undefined) {
+      student.age = patchStudentDto.age;
+    }
 
     return this.studentRepository.save(student);
   }
