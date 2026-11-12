@@ -10,6 +10,7 @@ import { ProductController } from './product/product.controller.js';
 import { EmployeeModule } from './employee/employee.module.js';
 import { CategoryModule } from './category/category.module.js';
 import { StudentModule } from './student/student.module.js';
+import { MynameController } from './myname/myname.controller.js';
 
 export const { ObserveModule, ObserveInstrument } = createObserveModule();
 
@@ -44,7 +45,7 @@ export const { ObserveModule, ObserveInstrument } = createObserveModule();
     CategoryModule,
     StudentModule,
   ],
-  controllers: [AppController, UserController, ProductController],
+  controllers: [AppController, UserController, ProductController, MynameController],
   providers: [AppService, ProductService],
 })
 export class AppModule {}

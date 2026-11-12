@@ -100,3 +100,15 @@ Used to remove a resource from the database.
 - **DELETE /student/:id**: Finds the student by id (throws `NotFoundException` if student does not exist).
 - Calls `studentRepository.remove()` to delete the record from PostgreSQL.
 - Returns a success confirmation message along with the deleted student details.
+
+12 nov 
+Class validator and class transformer 
+
+Custom pipes 
+
+nest g pipe uppercase
+
+Custom pipe in specific folder CMD
+nest g pipe common/pipes/uppercase
+
+pipetransform 
