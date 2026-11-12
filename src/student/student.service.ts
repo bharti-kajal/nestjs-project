@@ -89,4 +89,14 @@ export class StudentService {
 
     return this.studentRepository.save(student);
   }
+
+  // 5. DELETE - Remove an existing student
+  async remove(id: number): Promise<{ message: string; deletedStudent: Student }> {
+    const student = await this.findOne(id);
+    await this.studentRepository.remove(student);
+    return {
+      message: `Student with id ${id} successfully deleted`,
+      deletedStudent: student,
+    };
+  }
 }

@@ -93,3 +93,10 @@ Used to perform a partial update on an existing resource (only modifying fields 
 - If a new email is provided, verifies uniqueness against other records.
 - Updates only the provided fields (`name`, `email`, and/or `age`), leaving other fields unchanged.
 - Saves and returns the updated student.
+
+---
+### 5. DELETE API
+Used to remove a resource from the database.
+- **DELETE /student/:id**: Finds the student by id (throws `NotFoundException` if student does not exist).
+- Calls `studentRepository.remove()` to delete the record from PostgreSQL.
+- Returns a success confirmation message along with the deleted student details.

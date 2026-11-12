@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   HttpCode,
   HttpStatus,
@@ -55,5 +56,13 @@ export class StudentController {
     @Body() patchStudentDto: PatchStudentDto,
   ): Promise<Student> {
     return this.studentService.patch(id, patchStudentDto);
+  }
+
+  // 5. DELETE: Delete a student by id
+  @Delete(':id')
+  async remove(
+    @Param('id', ParseIntPipe) id: number,
+  ): Promise<{ message: string; deletedStudent: Student }> {
+    return this.studentService.remove(id);
   }
 }
