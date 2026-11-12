@@ -47,4 +47,12 @@ nest g module employee
 Nest js architecture explained
 nest js architecture imterview questions 
 
+12 November 2026
 
+REST APIS
+
+1.GET 
+2.POST
+3.PUT
+4.PATCH
+5.DELETE
