@@ -1,6 +1,16 @@
-import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  HttpCode,
+  HttpStatus,
+  Param,
+  ParseIntPipe,
+  Post,
+} from '@nestjs/common';
 import { StudentService } from './student.service.js';
 import { Student } from './entities/student.entity.js';
+import { CreateStudentDto } from './dto/create-student.dto.js';
 
 @Controller('student')
 export class StudentController {
@@ -16,5 +26,12 @@ export class StudentController {
   @Get(':id')
   async findOne(@Param('id', ParseIntPipe) id: number): Promise<Student> {
     return this.studentService.findOne(id);
+  }
+
+  // 2. POST: Create a new student
+  @Post()
+  @HttpCode(HttpStatus.CREATED)
+  async create(@Body() createStudentDto: CreateStudentDto): Promise<Student> {
+    return this.studentService.create(createStudentDto);
   }
 }

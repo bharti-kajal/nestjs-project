@@ -69,3 +69,11 @@ REST APIS
 Used to retrieve data from the server/database.
 - **GET /student**: Returns an array of all students (`studentRepository.find()`).
 - **GET /student/:id**: Returns a single student by id (`studentRepository.findOneBy({ id })`). Throws `NotFoundException` if student is not found.
+
+---
+### 2. POST API
+Used to create a new resource in the database.
+- **POST /student**: Receives `CreateStudentDto` (validated via `class-validator`) in the request body.
+- Checks if the email is already registered; if yes, throws `ConflictException` (HTTP 409).
+- Saves new student using `studentRepository.create()` and `studentRepository.save()`.
+- Returns HTTP 201 Created with the saved student entity.
