@@ -112,3 +112,64 @@ Custom pipe in specific folder CMD
 nest g pipe common/pipes/uppercase
 
 pipetransform 
+//pipes reach before your controller 
+Protecting Routes
+what are guards
+
+
+v.16
+Custom filter - using this show errror message 
+we can use globally, method controller 
+nest g filter filters/http-exception
+
+SwitchtoHttp 
+nest g controller exception 
+npm run start:dev
+
+Middleware Runs before the request reaches the controller 
+1.Logging incoing request 
+request transformation 
+blocking redirecting request setting headers 
+
+middleware vs guard 
+middleware is the concept of express js / we dont use decorators 
+guard is the nest js features 
+
+nest g middleware middleware/logger
+middleware use next to forward function 
+
+next(); // function stuck not move to another function 
+
+consumer.apply - what middlearw used in what methods 
+npm run start:dev 
+
+originalurl, url - difference in nest js 
+
+V.19. life cycle Events in nest js / Hooks 
+
+Life cycle methods 
+Hooks in nest js 
+special methods 
+
+life cycle events 
+
+why are life cycle methods useful 
+
+special events ke trigger prr node js automaticlly call 
+
+v.19 - Life cycle hooks in nestjs | OnModuleinit & onAppShutdown 
+nest g service database 
+nest g controller database 
+
+OnModuleInit()
+onApplicationShutDown()
+
+HTTPException methods 
+life cyctle start with "on"
+
+by default you not able to use hooks 
+you need to tell app.js 
+app.enableShutDownHooks()
+
+V.20  Enviroment variables in nest js | .env file explained 
+
